@@ -27,7 +27,7 @@ afn screen_update   @ 0x2e96
 afn screen_clear    @ 0x2aa2
 afn clear_KO        @ 0x395e
 afn init_display    @ 0x38d4
-afn ram_integrity   @ 0x371a
+afn need_reset      @ 0x371a
 afn wake_stop_ki    @ 0x394e
 afn memset          @ 0x7e0c
 afn zero_mem        @ 0x361c
