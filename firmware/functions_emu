@@ -1,0 +1,17 @@
+39aa entry           Entry point
+0006 ret_0006        Just returns. 0x0006 is vector table NMICE???
+3a0e diag_s7         Diagnostic mode check shift + 7
+3a38 diag_ac         Displays "DIAGNOSTIC PRESS AC"
+3a6c diag_mode       Runs through diagnostic tests
+2e96 screen_update   Copys screen buffer to video ram
+2aa2 screen_clear    Clears the screen buffer
+395e clear_KO        Writes 0 to F046, clearing KO
+38d4 init_display    Writes SFRs that control the screen
+371a ram_integrity   Checks 0x860e-0x861d for ram integrity
+39e4 wake_stop_ki    Writes 0 to F042 which controls which keys wake from STOP
+7e0c memset          er0 = start address, r2 = data, stack arg = num to write
+361c zero_mem        Zeros out memory starting at er0 for er2 bytes
+38ea screen_contrast Sets screen contrast to r0
+31f0 read_pd         Reads F050 into r0 (Emulator only according to wiki)
+aeda zero_input      Zeros out input area 8154h to 81B8h (100 byte)
+aee6 zero_cache      Zeros out input area 81B8h to 821Ch (100 byte)
