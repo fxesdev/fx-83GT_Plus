@@ -7,7 +7,7 @@
 2aa2 screen_clear    Clears the screen buffer
 395e clear_KO        Writes 0 to F046, clearing KO
 38d4 init_display    Writes SFRs that control the screen
-371a ram_integrity   Checks 0x860e-0x861d for ram integrity
+371a need_reset      Checks if need to reset (0x860e-0x861d for ram integrity)
 39e4 wake_stop_ki    Writes 0 to F042 which controls which keys wake from STOP
 7e0c memset          er0 = start address, r2 = data, stack arg = num to write
 361c zero_mem        Zeros out memory starting at er0 for er2 bytes
