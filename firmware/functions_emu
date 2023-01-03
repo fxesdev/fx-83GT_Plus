@@ -15,3 +15,4 @@
 31f0 read_pd         Reads F050 into r0 (Emulator only according to wiki)
 aeda zero_input      Zeros out input area 8154h to 81B8h (100 byte)
 aee6 zero_cache      Zeros out input area 81B8h to 821Ch (100 byte)
+7eb0 memcpy          er0 = dst, er2 = src, stack arg = num to write

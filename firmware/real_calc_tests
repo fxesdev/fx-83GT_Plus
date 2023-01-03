@@ -2,9 +2,27 @@
 
 0:3a24 %:0 
 0:3a28 (:0    barcode writing
-0:3a2a +:0
-0:3a2c ,:0
-0:3a2e .:0    barcode writing
-0:3a30 0:0    barcode writing
 
-0:3a6c Pol(:0 barcode writing
+0:3a2e .:0       barcode writing
+0:3a30 0:0       barcode writing
+0:3a44 D:0       barcode writing
+0:3a6c Pol(:0    barcode writing
+0:3a82 pi:0      barcode writing
+0:3a8B ans:0     barcode writing
+0:39A2 tan(90    key test, diagnostic
+0:3998 sqrt(90   contrast, diagnostic
+0:3976 ^390      full screen black, diagnostic
+0:3970 sinh(90   full screen black, diagnostic
+0:3962 Abs(90    full screen black, diagnostic
+0:3960 -90       full screen black, diagnostic
+0:395e ^(90      full screen black, diagnostic
+0:395c box90     line
+0:3958 X90       line
+0:3954 M90       full screen black, diagnostic
+0:394E x90       hangs then line
+0:3946 F90       barcode writing
+
+0:39b0 Reset All, Press AC and Barcode
+0:39b2 Press AC, Garbled and Barcode
+0:39a8 Reset All, Press AC, same garbled as b2 and Barcode
+0:39a6 Test Ok, Reset All, Press AC and Barcode
