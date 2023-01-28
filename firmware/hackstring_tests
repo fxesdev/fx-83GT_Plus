@@ -1,0 +1,27 @@
+# Infinite Loop
+
+diag_mode + 0x02 = 0x3a6c + 0x2 - 0x10e = 0x3960
+
+## Payload
+[pad] [diag_mode] [er0 = 6039           ] [er8 = 8156     ] [8156 = 6039          ] [er14 = 8154h   ] [sp = er14]
+30 30 60 39 30 30 8c 29 30 30 39 60 30 30 be 70 30 30 56 81 74 34 30 30 30 30 30 30 74 74 30 30 54 81 72 74 30 30
+
+## Entry
+[er14 = 8154h   ] [sp = er14]
+74 74 30 30 54 81 72 74 30 30
+
+## Hackstring
+
+Payload + Pad x14 + Entry
+
+0:8154
+[Payload                                                                                                                    ]
+0 0 -(small) 9 0 0 Ran# ) 0 0 9 -(small) 0 0 nPr sinh( 0 0 >rLθ e(bold) x10 4 0 0 0 0 0 0 x10 x10 0 0 M e(bold) tanh( x10 0 0
+
+0:817a
+[Pad x14                  ]
+0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+0:8188
+[Entry                            ]
+x10 x10 0 0 M e(bold) tanh( x10 0 0

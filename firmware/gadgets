@@ -1,0 +1,7 @@
+Emulator   Real     Assembly
+0:3582     0:3474   st er2, [er8]; pop xr8; pop pc
+0:71cc     0:70be   cmp r1, #42h; mov er2, er0; mov er0, er2; pop er8; pop pc
+0:4480     0:4372   pop er8; pop pc
+0:2a9a     0:298c   cmp r14, #ch; pop er0; pop er4; pop pc
+0:7580     0:7472   mov sp, er14; pop er14; pop pc
+0:7582     0:7474   pop er14; pop pc

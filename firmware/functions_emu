@@ -16,3 +16,9 @@
 aeda zero_input      Zeros out input area 8154h to 81B8h (100 byte)
 aee6 zero_cache      Zeros out input area 81B8h to 821Ch (100 byte)
 7eb0 memcpy          er0 = dst, er2 = src, stack arg = num to write
+b280 getkeycode      Puts keycode into r0
+3910 clear_stat_par  Clears part of the status bar
+
+# Possible
+
+8d52 change_mode
