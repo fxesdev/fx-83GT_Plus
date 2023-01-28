@@ -1,0 +1,18 @@
+222ah   Struct array
+
+struct format: 16 bytes long
+	uint16 Pointer to text
+
+function 0x9d08 uses this
+Menu function
+
+struct entry {
+	uint16_t *text;			/* 0x00 */
+	uint8_t   sub_menu;		/* 0x02 */ Indexed (MSB bit 0) with button press. If 1 return value, if 0 enter sub menu
+	uint8_t   unk;          /* 0x03 */ Indexed (MSB bit 0) with button press. If 1 r0 = 2, if 0 r0 = 3
+	uint8_t buttons[8];	    /* 0x04 */ Return value or sub menu index. If bit 7 == 1 and sub_menu == 0, return value with r0 = 1
+	uint8_t   unk;			/* 0x0C */
+	uint8_t   unk;      	/* 0x0D */
+	uint8_t   unk;			/* 0x0E */
+	uint8_t   unk;			/* 0x0F */
+}

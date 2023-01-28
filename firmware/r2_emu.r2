@@ -12,6 +12,10 @@ s 0x2ec2
 af
 s 0xaee6
 af
+s 0x93d4
+af
+s 0x3934
+af
 
 # Name functions
 afn entry           @ 0x39aa
@@ -31,6 +35,10 @@ afn screen_contrast @ 0x38ea
 afn read_pd         @ 0x31f0
 afn zero_input      @ 0xaeda
 afn zero_cache      @ 0xaee6
+afn reset_disp      @ 0x3910
+afn set_disp_r0     @ 0x3934
+afn delay           @ 0x37b4
+afn menu            @ 0x9d08
 
 # Fixup weird analysis
 s 0x38d4
@@ -39,6 +47,10 @@ s 0x2be2
 afm 0x2be4
 s diag_mode
 afm diag_s7
+s 0x31a6
+afm 0x3188
+s 0x3934
+afm 0x3910
 
 # Seek to entry point
 s entry
