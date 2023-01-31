@@ -15,4 +15,4 @@ struct entry {
 	uint8_t   menu_down;    /* Index of the menu accessed by pressing down */
 	uint8_t   menu_left;	/* Index of the menu accessed by pressing left */
 	uint8_t   menu_exit;	/* Keycode signalling exit menu */
-}
+};
