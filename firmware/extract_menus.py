@@ -19,14 +19,42 @@ def get_string(addr):
 
 base = 0x222a
 
-for idx in range(30):
+def get_entry(idx):
 	addr = base + (idx << 4)
 	entry = struct.unpack("<HBBBBBBBBBBBBBB", data[addr:addr+16])
 
-	addr = entry[0]
+	return entry
 
-	if addr == 0:
-		print(f"[{idx:03d}] NULL")
-	else:
-		text = get_string(addr).decode(errors='backslashreplace')
-		print(f"[{idx:03d}] {text}")
+def traverse_entries(idx):
+	entry = get_entry(idx)
+
+	addr = entry[0]
+	text = get_string(addr).decode(errors='backslashreplace')
+	print(f"[{idx:03d}] {text}")
+
+	mask = entry[1]
+
+	for x in range(0, 8):
+		# Sub-menu or text
+		if mask >> (7 - x) & 1 == 0:
+			traverse_entries(entry[3 + x])
+	
+	# Next menu
+	if entry[12] != 0x00:
+		traverse_entries(entry[12])
+
+traverse_entries(0x18)
+
+"""
+for idx in range(30):
+	entry = get_entry(idx)
+
+	if entry[14] == 0xE6:
+		continue
+
+	addr = entry[0]
+	text = get_string(addr).decode(errors='backslashreplace')
+	print(f"[{idx:03d}] {text}")
+
+	print(entry)
+"""
