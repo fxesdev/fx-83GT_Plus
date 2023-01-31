@@ -25,3 +25,11 @@ Payload + Pad x14 + Entry
 0:8188
 [Entry                            ]
 x10 x10 0 0 M e(bold) tanh( x10 0 0
+
+
+
+# Set lr test
+
+[pop er0; pop er4] [er0] [er4] [set lr   ] [delay    ] [diag mode]
+8c 29 x0 xx        25 25 xx xx fc 14 x1 xx a6 36 x0 xx 60 39 30 30
+                               ^ Change this
