@@ -16,6 +16,18 @@ s 0x93d4
 af
 s 0x3934
 af
+s 0x31a6
+af
+s 0x3188
+af
+s 0x91d2
+af
+s 0x668a
+af
+afr
+s 0x69aa
+af
+afr
 
 # Name functions
 afn entry           @ 0x39aa
