@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>fx-83GT Plus Symbol Map</title>
+		<style>
+			/* Disable anti-aliasing so the images look correct */
+			img { 
+				image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  */
+				image-rendering: -moz-crisp-edges;          /* Firefox                        */
+				image-rendering: -o-crisp-edges;            /* Opera                          */
+				image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
+				image-rendering: pixelated;                 /* Universal support since 2021   */
+				image-rendering: optimize-contrast;         /* CSS3 Proposed                  */
+				-ms-interpolation-mode: nearest-neighbor;   /* IE8+                           */
+			}
+
+			.inlineTable {
+				display: inline-block;
+				border: 1px solid;
+			}
+		</style>
+		<script>
+			segments = 8;
+			window.onload = function() {
+				// Create a table for each segment
+				for(var i = 0; i < segments; i++) {
+					// Create the table
+					var table = document.createElement('table');
+					table.classList.add('inlineTable');
+
+					// Populate the table
+					for(var x = 0; x < 256/segments; x++) {
+						var num = (i * 256/segments + x).toString(16).padStart(2, '0').toUpperCase();
+
+						// Create the table row
+						var tr = document.createElement('tr');
+						tr.innerHTML = `<td>${num}</td><td><img src="symbols/${num}.png"></td>`;
+
+						// Add to the table
+						table.appendChild(tr);
+					}
+
+					// Add it to the DOM
+					document.body.appendChild(table);
+				}
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

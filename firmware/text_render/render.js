@@ -29,7 +29,7 @@ window.onload = function() {
 
 	// Load character-to-byte mappings
 	var xhr = new XMLHttpRequest();
-	xhr.open('GET', 'characters.json', true);
+	xhr.open('GET', 'symbols.json', true);
 	xhr.responseType = 'json';
 	xhr.onload = function() {
 	  map = xhr.response;
@@ -62,7 +62,7 @@ function renderBytes(bytes) {
 	
 	// Loop over and render every character
 	for(var i = 0; i < bytes.length; i++) {
-		ctx.putImageData(getChar(bytes[i]), 8*scale*i, 0);
+		ctx.putImageData(getChar(bytes[i]), 8*scale*i, 9*scale*y);
 	}
 }
 
