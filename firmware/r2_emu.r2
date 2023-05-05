@@ -51,6 +51,8 @@ afn reset_disp      @ 0x3910
 afn set_disp_r0     @ 0x3934
 afn delay           @ 0x37b4
 afn menu            @ 0x9d08
+afn getkeycode      @ 0xb280
+afn reset_all       @ 0xae48
 
 # Fixup weird analysis
 s 0x38d4
@@ -63,6 +65,8 @@ s 0x31a6
 afm 0x3188
 s 0x3934
 afm 0x3910
+s 0x32b6
+afm 0x329c
 
 # Seek to entry point
 s entry

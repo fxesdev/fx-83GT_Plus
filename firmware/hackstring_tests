@@ -33,3 +33,7 @@ x10 x10 0 0 M e(bold) tanh( x10 0 0
 [pop er0; pop er4] [er0] [er4] [set lr   ] [delay    ] [diag mode]
 8c 29 x0 xx        25 25 xx xx fc 14 x1 xx a6 36 x0 xx 60 39 30 30
                                ^ Change this
+
+# Test change mode
+[pop er8  ] [er8] [pop er14 ] [er14] [80f9h = r8     ]
+72 43 30 30 02 30 74 74 30 30 54 81  4e 8b 30 30 30 30

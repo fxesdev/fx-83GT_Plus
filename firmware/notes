@@ -1,0 +1,29 @@
+
+Array starting at 1:9be2
+
+ER0 ER2 ER4 R6 R7 ...
+
+REPEAT UNTIL ER0 = FFFF
+	IF ER4 != 0 THEN
+		IF BIT 0 of R2 or R4 is 1 THEN
+			REPEAT ER4 TIMES
+				R8 = [ER0]
+				ER0 += 1
+				[ER2] = R8
+				ER2 += 1
+			END
+		ELSE
+			REPEAT ER4/2 TIMES
+				ER8 = R6:[ER0]
+				ER0 += 2
+				R7:[ER2] = ER8
+				ER2 += 2
+			END
+		END
+	END
+END
+
+SRC DST LEN SRC_SEG DST_SEG
+
+Copied from 1:9bceh to 0:8dech
+3f 0f 46 0f 4d 0f 54 0f 5c 0f 64 0f 6a 0f 6f 0f 73 0f dc 80

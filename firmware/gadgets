@@ -5,3 +5,6 @@ Emulator   Real     Assembly
 0:2a9a     0:298c   cmp r14, #ch; pop er0; pop er4; pop pc
 0:7580     0:7472   mov sp, er14; pop er14; pop pc
 0:7582     0:7474   pop er14; pop pc
+
+0:3a66     0:3958   pop qr0; pop pc
+1:338a     1:338a   set lr

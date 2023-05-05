@@ -1,0 +1,14 @@
+239 aoVm9^2[x-hat]
+
+Abs(Ran# + 3[x-hat] STO [ANY CHARACTER] [11 in menu] choose mode
+Abs(3[nPr]2 + 3[x-hat] STO [ANY CHARACTER] VCT
+Abs(10[nPr]9 + 3[x-hat] STO VCT
+Abs(183[nPr]1 + 3[x-hat] STO VCT
+Abs(183[nPr]2 + 3[x-hat] STO VCT
+Abs(3[nCr]2 + 3[x-hat] STO VCT
+
+Hackstrings of the form
+
+Ran# + [NUMBERS][x-hat] STO go to chnage mode menu
+
+log(RanInt(1,3log(2,4),3[x-hat]) STO
