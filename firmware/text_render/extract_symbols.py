@@ -12,10 +12,19 @@ for idx in range(0x100):
 	addr = struct.unpack("<H", data[addr:addr+2])[0]
 
 	# Get the length
+	flags = data[0x12F2 + idx] >> 4
 	length = data[0x12F2 + idx] & 0xF
+	
+	if flags != 0xF:
+		addr += flags
+
+	chars = data[addr:addr+length]
+
+	if flags == 0xF:
+		chars += b"\x28"
 
 	# Get bytes
-	symbols[idx] = base64.b64encode(data[addr:addr+length]).decode()
+	symbols[idx] = base64.b64encode(chars).decode()
 
 with open("symbols.json", "w") as data_file:
 	json.dump(symbols, data_file)

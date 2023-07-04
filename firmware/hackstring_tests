@@ -37,3 +37,33 @@ x10 x10 0 0 M e(bold) tanh( x10 0 0
 # Test change mode
 [pop er8  ] [er8] [pop er14 ] [er14] [80f9h = r8     ]
 72 43 30 30 02 30 74 74 30 30 54 81  4e 8b 30 30 30 30
+
+
+
+
+# User's ROM dump ROP
+
+0x8154:
+    0x3030              # Junk
+    render + 0x8        0:2d90
+
+    0x303030303030      # er8 - er12
+    0x8154              # er14
+
+    pop xr0             1:308c
+    0x30303030
+    set lr              1:338a
+    delay               0:36a9
+
+    mov sp, er14        0:7472
+
+[padding here]
+
+0x8188:
+    mov er0, #0h        0:be2a  2a can substitude + (2b) due to alignment
+    0x3030              # er8
+    0x30303030          # xr4
+
+    pop er14            0:7474
+    0x8154
+    mov sp, er14        0:7472

@@ -8,3 +8,5 @@ Emulator   Real     Assembly
 
 0:3a66     0:3958   pop qr0; pop pc
 1:338a     1:338a   set lr
+1:308c     1:308c   pop xr0; pop pc
+0:bf38     0:be2a   mov er0, #0h; pop er8; pop xr4; pop pc

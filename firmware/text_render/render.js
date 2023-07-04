@@ -1,4 +1,6 @@
-scale = 3;
+var scale = 3;
+var charMap;
+var max_x;
 
 window.onload = function() {
 	// Create a canvas
@@ -24,6 +26,8 @@ window.onload = function() {
 	drawing_canvas.width = window.screen.width;
 	drawing_canvas.getContext('2d').imageSmoothingEnabled = false
 
+	max_x = Math.floor(window.screen.width / (scale * 8));
+
 	// Add listener on the text box
 	document.getElementById('text_input').addEventListener('input', updateRender)
 
@@ -32,11 +36,10 @@ window.onload = function() {
 	xhr.open('GET', 'symbols.json', true);
 	xhr.responseType = 'json';
 	xhr.onload = function() {
-	  map = xhr.response;
-	  Object.keys(map).forEach(function(key) {
-		map[key] = Array.from(atob(map[key]), c => c.charCodeAt(0));
+	  charMap = xhr.response;
+	  Object.keys(charMap).forEach(function(key) {
+		charMap[key] = Array.from(atob(charMap[key]), c => c.charCodeAt(0));
 	  });
-	  window.characterMap = map;
 	};
 	xhr.send();
 }
@@ -52,26 +55,37 @@ function getChar(c) {
 	return window.calcFontCtx.getImageData(x, y, 8 * scale, 9 * scale);
 }
 
-function renderBytes(bytes) {
+function renderBytes(bytes, x, y) {
+	// Get canvas context
+	var canvas = document.getElementById('text_render');
+	var ctx = canvas.getContext('2d');
+
+	// Loop over and render every character
+	for(var i = 0; i < bytes.length; i++) {
+		ctx.putImageData(getChar(bytes[i]), 8*scale*(x + i), 9*scale*y);
+	}
+}
+
+function renderString(string) {
 	// Get canvas context
 	var canvas = document.getElementById('text_render');
 	var ctx = canvas.getContext('2d');
 
 	// Clear the canvas
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
-	
-	// Loop over and render every character
-	for(var i = 0; i < bytes.length; i++) {
-		ctx.putImageData(getChar(bytes[i]), 8*scale*i, 9*scale*y);
-	}
-}
 
-function renderString(string) {
-	bytes = new Array();
+	// Render bytes with line wrapping
+	var x = 0, y = 0;
 	for(var i = 0; i < string.length; i++) {
-		bytes = bytes.concat(window.characterMap[string[i]]);
+		var bytes = charMap[string[i]];
+		if (x + bytes.length >= max_x) {
+			x = 0;
+			y++;
+			
+		}
+		renderBytes(bytes, x, y);
+		x += bytes.length;
 	}
-	renderBytes(bytes);
 }
 
 function updateRender(e) {
