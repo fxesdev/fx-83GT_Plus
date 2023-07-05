@@ -7,10 +7,11 @@ cap = cv2.VideoCapture('video.mov')
 
 if cap.isOpened()== False:
 	print("Error opening video file")
+	quit()
 
 num_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
 
-#num_frames = 2000
+#num_frames = 500
 
 #num_frames = 300
 #cap.set(cv2.CAP_PROP_POS_FRAMES, 1500)
@@ -40,6 +41,7 @@ size = 6
 sigma = 1.75
 
 print(f"[*] Generating gaussian filter kernel")
+
 r = range(-int(size/2),int(size/2)+1)
 kernel = [1 / (sigma * np.sqrt(2*np.pi)) * np.exp(-float(x)**2/(2*sigma**2)) for x in r]
 kernel /= np.sum(kernel)
@@ -49,6 +51,7 @@ filtered = np.concatenate(([0] * int(size/2), np.convolve(kernel, deltas, mode='
 print(f"[*] Filter kernel applied")
 
 print(f"[*] Applying peak detection")
+
 # Peak detection
 # Get max value in window around sample
 pwidth = 7
@@ -103,7 +106,7 @@ print(f"[*] Saving frames ...")
 for idx, p in zip(range(len(midpoints)), midpoints):
 	cap.set(cv2.CAP_PROP_POS_FRAMES, p)
 
-	if idx % 100 == 0:
+	if idx % 50 == 0:
 		print(f"[*] Saving frame {idx:05d}/{len(midpoints):05d}")
 
 	# Get the frame

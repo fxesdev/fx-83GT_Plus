@@ -1,3 +1,9 @@
 video.mov
 timing_recovery.png
 frames/
+frames_post/
+overlay.kra~
+overlay.json
+overlay.png
+data.json
+raw_data.bin
