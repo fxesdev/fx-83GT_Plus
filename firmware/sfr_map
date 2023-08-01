@@ -1,0 +1,61 @@
+f000h Data Segment Register
+
+f008h STPACP
+f009h SBYCON
+
+f00ah LTBR?
+
+# One large register?
+f010h
+f011h
+
+f014h
+
+f018h
+
+# Timer 0
+f020h TM0D
+f021h TM0D
+f022h TM0C
+f023h TM0C
+f024h TM0CON0
+f025h TM0CON1
+
+# LCD Related Registers
+f030h
+f031h
+f032h
+f033h
+f034h
+
+# Keyboard stuff
+f040h
+f041h
+f042h
+f043h
+f044h
+f045h
+f046h
+f048h
+f049h
+
+f0a5h
+f0b2h
+f0c5h
+f0e5h
+
+
+f101h
+
+f21eh
+
+# Some form of port control?
+f221h DIR
+f222h CON0
+f223h CON1
+
+f28eh
+
+f465h
+f613h
+fc89h
